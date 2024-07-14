@@ -40,6 +40,8 @@ const UserAuthForm = ({ type }) => {
         }, 1000);
       } catch (error) {
         if (error.response.data.message == "User is not verified") {
+          setUserId(error.response.data.data.id);
+          setUser(error.response.data.data)
           toast.error(error.response.data.message, {
             duration: 1000,
           });
