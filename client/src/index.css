@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    * {
+        @apply m-0 p-0 box-border text-base duration-100;
+    }
+
+    html {
+        @apply overflow-x-hidden;
+    }
+
+    body {
+        @apply font-plusSans font-normal text-black;
+    }
+
+    .navbar {
+        @apply z-10 sticky top-0 flex items-center justify-between w-full px-[5vw] py-4 h-[70px] border-b border-grey bg-darkslategray;
+    }
+
+    .h-cover {
+        @apply min-h-[calc(100vh-230px)];
+    }
+
+    .center {
+        @apply block mx-auto;
+    }
+
+    .input-box {
+        @apply w-[100%] rounded-md p-4 bg-grey pl-12 border border-grey focus:bg-transparent placeholder:text-black;
+    }
+
+    .input-icon {
+        @apply absolute left-4 top-1/2 -translate-y-1/2;
+    }
+
+    .btn-dark {
+        @apply whitespace-nowrap bg-black text-white rounded-full py-3 px-8 text-xl capitalize hover:bg-opacity-80;
+    }
+
+    .btn-light {
+        @apply whitespace-nowrap bg-medium-grey text-black rounded-full py-3 px-8 text-xl capitalize hover:bg-opacity-80;
+    }
+}
