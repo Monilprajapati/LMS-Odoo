@@ -17,7 +17,7 @@ import HomePage from "../pages/HomePage";
 import BookDetail from "../components/BookDetail";
 import LibrarianDashboard from "../pages/LibrarianDashboard";
 import About from "../components/About";
-import Contact from "../components/Contact";
+// import Contact from "../components/Contact";
 
 const CustomRoutes = () => {
   const { userRole } = useUserContext();
@@ -42,7 +42,7 @@ const CustomRoutes = () => {
           </PublicRoute>
         }
       />
-
+{/* 
       <Route
         path="/contact"
         element={
@@ -50,7 +50,7 @@ const CustomRoutes = () => {
             <Contact />
           </PublicRoute>
         }
-      />
+      /> */}
 
 
       <Route
