@@ -8,7 +8,11 @@ const UserContextProvider = ({ children }) => {
   const [userId, setUserId] = useState("");
   const [user, setUser] = useState({});
   const [userRole, setUserRole] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -34,12 +38,14 @@ const UserContextProvider = ({ children }) => {
   }, [isAuth, userId, userRole]);
 
   console.log(user);
-
+  console.log(userRole)
   return (
     <UserContext.Provider
       value={{
         isAuth,
         setIsAuth,
+        books,
+        setBooks,
         userId,
         setUserId,
         userRole,
@@ -47,6 +53,10 @@ const UserContextProvider = ({ children }) => {
         isLoading,
         user,
         setUser,
+        loading,
+        setLoading,
+        error,
+        setError,
       }}
     >
       {children}

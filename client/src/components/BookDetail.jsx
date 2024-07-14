@@ -7,13 +7,13 @@ const BookDetail = () => {
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
+  const VITE_API_KEY = import.meta.env.VITE_API_KEY;
   useEffect(() => {
     const fetchBookDetails = async () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}?key=AIzaSyDah_bqx1VW9ROLd-g-zoxZdXVqpVijFo0`);
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}?key=${VITE_API_KEY}`);
         setBook(response.data);
       } catch (err) {
         setError('Error fetching book details. Please try again.');
@@ -37,11 +37,11 @@ const BookDetail = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 p-4">
-      <header className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-6 shadow-md text-center">
+      <header className="bg-darkslategray text-black py-4 px-6 shadow-md text-center">
         <h1 className="text-4xl font-medium">Book Details</h1>
       </header>
       <main className="flex-grow flex flex-col items-center p-4">
-        <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full relative">
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full">
           <div className="flex flex-col lg:flex-row">
             {book.volumeInfo.imageLinks?.thumbnail && (
               <img
@@ -59,15 +59,15 @@ const BookDetail = () => {
                 </p>
               )}
               {book.volumeInfo.publishedDate && (
-                <p className="text-gray-700 text-lg mb-4">
+                <p className="text-lg mb-4">
                   <span className="font-semibold">Published Date:</span> {book.volumeInfo.publishedDate}
                 </p>
               )}
               {book.volumeInfo.description && (
-                <p className="text-gray-700 text-lg mb-6">{truncateDesc(book.volumeInfo.description, 300)}</p>
+                <p className="text-lg text-black mb-6">{truncateDesc(book.volumeInfo.description, 300)}</p>
               )}
               <button
-                className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="bg-blue-500 text-black py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Buy
               </button>

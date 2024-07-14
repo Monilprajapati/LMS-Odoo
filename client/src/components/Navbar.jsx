@@ -42,7 +42,6 @@ const Navbar = () => {
               {/* <Link to="/" className="text-xl">
                 Ask a Question
               </Link> */}
-              <SearchInput />
               <UserDropdown />
             </>
           ) : (
