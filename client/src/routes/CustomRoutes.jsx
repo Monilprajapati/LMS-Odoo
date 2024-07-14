@@ -12,15 +12,47 @@ import ForgotPassword from "../pages/ForgotPassword";
 
 import { useUserContext } from "../contexts/userContext";
 import UserProfile from "../pages/UserProfile";
+import NotFound from "../components/NotFound";
 import HomePage from "../pages/HomePage";
 import BookDetail from "../components/BookDetail";
 import LibrarianDashboard from "../pages/LibrarianDashboard";
+import About from "../components/About";
+import Contact from "../components/Contact";
 
 const CustomRoutes = () => {
   const { userRole } = useUserContext();
 
   return (
     <Routes>
+
+      <Route
+        path="*"
+        element={
+          <PublicRoute>
+            <NotFound />
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/about"
+        element={
+          <PublicRoute>
+            <About />
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/contact"
+        element={
+          <PublicRoute>
+            <Contact />
+          </PublicRoute>
+        }
+      />
+
+
       <Route
         path="/login"
         element={
