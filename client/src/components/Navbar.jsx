@@ -5,6 +5,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../contexts/userContext";
 import UserDropdown from "./UserDropdown";
+import SearchInput from "./SearchInput";
 
 const Navbar = () => {
   // this state will tell if user is authenticated or not
@@ -33,6 +34,7 @@ const Navbar = () => {
           </div>
         )}
         <div className="hidden md:flex md:w-2/3 justify-end items-center gap-8">
+        <SearchInput />
           {isAuth ? (
             <>
               {/* <Link to="/" className="text-xl">

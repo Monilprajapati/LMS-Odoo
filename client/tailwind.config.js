@@ -6,8 +6,8 @@ export default {
     colors: {
       white: "#FFFFFF",
       black: "#242424",
-      grey: "#F3F3F3",
-      "medium-grey": "#E5E5E5",
+      grey: "#F5F5F5",
+      mediumGrey: "#DCDCDC",
       "dark-grey": "#6B6B6B",
       transparent: "transparent",
       red: "#FF0000",
