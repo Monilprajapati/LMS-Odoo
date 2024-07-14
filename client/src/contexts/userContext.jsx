@@ -12,6 +12,7 @@ const UserContextProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [librayBooks, setLibraryBooks] = useState([]);
 
 
   useEffect(() => {
@@ -57,6 +58,8 @@ const UserContextProvider = ({ children }) => {
         setLoading,
         error,
         setError,
+        librayBooks,
+        setLibraryBooks,
       }}
     >
       {children}

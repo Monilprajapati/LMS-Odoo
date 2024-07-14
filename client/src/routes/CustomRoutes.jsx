@@ -14,6 +14,7 @@ import { useUserContext } from "../contexts/userContext";
 import UserProfile from "../pages/UserProfile";
 import HomePage from "../pages/HomePage";
 import BookDetail from "../components/BookDetail";
+import LibrarianDashboard from "../pages/LibrarianDashboard";
 
 const CustomRoutes = () => {
   const { userRole } = useUserContext();
@@ -86,9 +87,9 @@ const CustomRoutes = () => {
       <Route
         path="/book/:id"
         element={
-          <PublicRoute>
-            <BookDetail/>
-          </PublicRoute>
+          <ProtectedRoute role="user">
+            <BookDetail />
+          </ProtectedRoute>
         }
       />
 
@@ -99,9 +100,13 @@ const CustomRoutes = () => {
             <ProtectedRoute role="admin">
               <AdminDashboard />
             </ProtectedRoute>
-          ) : (
+          ) : userRole == "user" ? (
             <ProtectedRoute role="user">
               <UserDashboard />
+            </ProtectedRoute>
+          ) : (
+            <ProtectedRoute role="librarian">
+              <LibrarianDashboard />
             </ProtectedRoute>
           )
         }
