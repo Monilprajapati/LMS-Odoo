@@ -19,7 +19,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    year: {
+    publishedDate: {
         type: Number,
         required: true
     },
@@ -27,8 +27,12 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    quantity: {
-        type: Number,
+    image: {
+        type: String,
+        required: true
+    },
+    desc: {
+        type: String,
         required: true
     }
 }, { timestamps: true });
