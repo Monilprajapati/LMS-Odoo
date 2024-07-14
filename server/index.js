@@ -6,6 +6,9 @@ import cors from "cors";
 import connectToDb from "./src/config/databaseConfig.js";
 import { PORT, FRONTEND_URL } from "./src/config/serverConfig.js";
 import { createCheckoutSession } from "./src/controllers/paymentController.js";
+import authRoute from "./src/routes/authRoute.js";
+import bookRoute from "./src/routes/bookRoute.js";
+import borrowRoute from "./src/routes/borrowRoute.js";
 
 
 await connectToDb();
