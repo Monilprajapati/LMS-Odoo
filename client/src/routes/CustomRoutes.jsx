@@ -15,6 +15,8 @@ import UserProfile from "../pages/UserProfile";
 import NotFound from "../components/NotFound";
 import HomePage from "../pages/HomePage";
 import BookDetail from "../components/BookDetail";
+import About from "../components/About";
+import Contact from "../components/Contact";
 
 const CustomRoutes = () => {
   const { userRole } = useUserContext();
@@ -22,7 +24,7 @@ const CustomRoutes = () => {
   return (
     <Routes>
 
-<Route
+      <Route
         path="*"
         element={
           <PublicRoute>
@@ -30,6 +32,25 @@ const CustomRoutes = () => {
           </PublicRoute>
         }
       />
+
+      <Route
+        path="/about"
+        element={
+          <PublicRoute>
+            <About />
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/contact"
+        element={
+          <PublicRoute>
+            <Contact />
+          </PublicRoute>
+        }
+      />
+
 
       <Route
         path="/login"
@@ -98,7 +119,7 @@ const CustomRoutes = () => {
         path="/book/:id"
         element={
           <PublicRoute>
-            <BookDetail/>
+            <BookDetail />
           </PublicRoute>
         }
       />
