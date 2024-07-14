@@ -16,7 +16,7 @@ const truncateDesc = (text, maxLength) => {
   return text.slice(0, maxLength) + "...";
 };
 
-const UserDashboard = () => {
+const HomePage = () => {
   const [query, setQuery] = useState("python");
   const [trendingQuery, setTrendingQuery] = useState("odoo");
   const { books, setBooks, loading, setLoading, error, setError } =
@@ -75,31 +75,31 @@ const UserDashboard = () => {
   return (
     <AnimationWrapper keyValue="books">
       {/* <div className="h-cover flex items-center justify-center px-5 md:px-0">
-      <header className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-6 shadow-md text-center">
-        <h1 className="text-3xl font-bold">
-          Search the Books Available in Library
-        </h1>
-      </header> */}
+    <header className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-6 shadow-md text-center">
+      <h1 className="text-3xl font-bold">
+        Search the Books Available in Library
+      </h1>
+    </header> */}
       {/* <main className="h-full flex items-center justify-center px-5 md:px-0">
-        <div className="mb-4 flex space-x-2 w-full max-w-xl">
-          <input
-            type="text"
-            placeholder="Search for books"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <button
-            onClick={handleSearch}
-            className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Search
-          </button>
-        </div>
-        {loading && <p>Loading...</p>}
-        {error && <p className="text-red-500">{error}</p>}
-       
-      </main> */}
+      <div className="mb-4 flex space-x-2 w-full max-w-xl">
+        <input
+          type="text"
+          placeholder="Search for books"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+        <button
+          onClick={handleSearch}
+          className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Search
+        </button>
+      </div>
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
+     
+    </main> */}
       {/* </div> */}
       <div className="h-cover w-full px-10 flex flex-col pt-9 pb-20 items-center justify-center">
         <SearchInput query={query} setQuery={setQuery} />
@@ -164,4 +164,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default HomePage;

@@ -13,6 +13,8 @@ import ForgotPassword from "../pages/ForgotPassword";
 import { useUserContext } from "../contexts/userContext";
 import UserProfile from "../pages/UserProfile";
 import NotFound from "../components/NotFound";
+import HomePage from "../pages/HomePage";
+import BookDetail from "../components/BookDetail";
 
 const CustomRoutes = () => {
   const { userRole } = useUserContext();
@@ -77,7 +79,7 @@ const CustomRoutes = () => {
       <Route
         path="/profile"
         element={
-          <ProtectedRoute role={userRole}>
+          <ProtectedRoute role="user">
             <UserProfile />
           </ProtectedRoute>
         }
@@ -85,6 +87,24 @@ const CustomRoutes = () => {
 
       <Route
         path="/"
+        element={
+          <PublicRoute>
+            <HomePage />
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/book/:id"
+        element={
+          <PublicRoute>
+            <BookDetail/>
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/dashboard"
         element={
           userRole == "admin" ? (
             <ProtectedRoute role="admin">

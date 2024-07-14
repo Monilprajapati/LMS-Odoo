@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
@@ -19,7 +19,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    year: {
+    publishedDate: {
         type: Number,
         required: true
     },
@@ -27,12 +27,16 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    quantity: {
-        type: Number,
+    image: {
+        type: String,
+        required: true
+    },
+    desc: {
+        type: String,
         required: true
     }
 }, { timestamps: true });
 
 bookSchema.index({ title: 'text', author: 'text', genre: 'text' });
 
-module.exports = mongoose.model('Book', bookSchema);
+export const Book = mongoose.model('Book', bookSchema);

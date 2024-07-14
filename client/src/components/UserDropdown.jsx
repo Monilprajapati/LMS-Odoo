@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { Toaster, toast } from "react-hot-toast";
 import { useUserContext } from "../contexts/userContext";
 import { CiUser } from "react-icons/ci";
-// import { logoutUser } from "../services/authServices";
+import { logoutUser } from "../services/authServices";
 
 const UserDropdown = ({ mobile }) => {
   const [open, setOpen] = useState(false);
@@ -36,23 +36,23 @@ const UserDropdown = ({ mobile }) => {
   }, []);
 
   const logoutHandler = async () => {
-    // try {
-    //   const response = await logoutUser();
-    //   if (response.success) {
-    //     toast.success("Logged out successfully", {
-    //       duration: 900,
-    //     });
-    //     setTimeout(() => {
-    //       setIsAuth(false); // Update the authentication state
-    //       navigate("/login"); // Immediately navigate to the login page
-    //     }, 900);
-    //   }
-    // } catch (error) {
-    //   console.error("Error logging out:", error);
-    //   toast.error("Error logging out. Please try again", {
-    //     duration: 900,
-    //   });
-    console.log("Logout");
+    try {
+      const response = await logoutUser();
+      if (response.success) {
+        toast.success("Logged out successfully", {
+          duration: 900,
+        });
+        setTimeout(() => {
+          setIsAuth(false); // Update the authentication state
+          navigate("/login"); // Immediately navigate to the login page
+        }, 900);
+      }
+    } catch (error) {
+      console.error("Error logging out:", error);
+      toast.error("Error logging out. Please try again", {
+        duration: 900,
+      });
+    }
   };
 
   return (

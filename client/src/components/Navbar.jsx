@@ -5,6 +5,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../contexts/userContext";
 import UserDropdown from "./UserDropdown";
+import SearchInput from "./SearchInput";
 
 const Navbar = () => {
   // this state will tell if user is authenticated or not
@@ -19,7 +20,10 @@ const Navbar = () => {
             <IoLibrarySharp className="text-lg  md:text-xl lg:text-3xl xl:text-4xl" />
           </span>
           <span className="text-xl group md:text-2xl lg:text-3xl xl:text-4xl">
-            LMS | <span className="group-hover:text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl">Odoo</span>
+            LMS |{" "}
+            <span className="group-hover:text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+              Odoo
+            </span>
           </span>
         </Link>
         {isAuth && (

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-// import { getUserDetails } from "../services/authServices.jsx";
+import { getUserDetails } from "../services/authServices.jsx";
 
 const UserContext = createContext();
 
@@ -8,38 +8,44 @@ const UserContextProvider = ({ children }) => {
   const [userId, setUserId] = useState("");
   const [user, setUser] = useState({});
   const [userRole, setUserRole] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  // useEffect(() => {
-  //   const fetchUserDetails = async () => {
-  //     try {
-  //       const response = await getUserDetails();
-  //       console.log(response);
-  //       const { user } = response.data;
 
-  //       if (response) {
-  //         setIsAuth(true);
-  //         setUserId(user.id);
-  //         setUserRole(user.role);
-  //         setUser(user);
-  //       }
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching user details:", error);
-  //       setIsLoading(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await getUserDetails();
+        console.log(response);
+        const { user } = response.data;
 
-  //   fetchUserDetails();
-  // }, [isAuth, userId, userRole]);
+        if (response) {
+          setIsAuth(true);
+          setUserId(user.id);
+          setUserRole(user.role);
+          setUser(user);
+        }
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchUserDetails();
+  }, [isAuth, userId, userRole]);
 
   console.log(user);
-
+  console.log(userRole)
   return (
     <UserContext.Provider
       value={{
         isAuth,
         setIsAuth,
+        books,
+        setBooks,
         userId,
         setUserId,
         userRole,
@@ -47,6 +53,10 @@ const UserContextProvider = ({ children }) => {
         isLoading,
         user,
         setUser,
+        loading,
+        setLoading,
+        error,
+        setError,
       }}
     >
       {children}

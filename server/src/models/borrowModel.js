@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const borrowSchema = new Schema({
@@ -22,4 +22,4 @@ const borrowSchema = new Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Borrow', borrowSchema);
+export const Borrow = mongoose.model('Borrow', borrowSchema);

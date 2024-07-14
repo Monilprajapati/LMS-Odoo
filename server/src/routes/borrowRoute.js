@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const { checkoutBook, returnBook } = require('../controllers/borrowController');
+import { Router } from "express";
+const router = Router();
+import { checkoutBook, returnBook } from '../controllers/borrowController.js';
 
 // Checkout Book
 router.post('/checkout', checkoutBook);
@@ -8,4 +8,4 @@ router.post('/checkout', checkoutBook);
 // Return Book
 router.post('/return', returnBook);
 
-module.exports = router;
+export default router;
