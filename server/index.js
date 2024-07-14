@@ -21,6 +21,11 @@ app.use(
     })
 );
 
+app.use(`/api/v1/auth`, authRoute);
+app.use(`/api/v1/books`, bookRoute);
+app.use(`/api/v1/borrows`, borrowRoute);
+app.use(`/api/v1/create-checkout-session`, createCheckoutSession);
+
 app.listen(PORT, () => {
     console.log("Server is running on PORT : ", PORT);
 })
