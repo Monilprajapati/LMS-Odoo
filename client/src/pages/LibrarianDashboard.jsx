@@ -16,19 +16,11 @@ const truncateDesc = (text, maxLength) => {
   return text.slice(0, maxLength) + "...";
 };
 
-const UserDashboard = () => {
+const LibrarianDashboard = () => {
   const [query, setQuery] = useState("python");
   const [trendingQuery, setTrendingQuery] = useState("odoo");
-  const {
-    books,
-    setBooks,
-    loading,
-    setLoading,
-    error,
-    setError,
-    libraryBooks,
-    setLibraryBooks,
-  } = useUserContext();
+  const { books, setBooks, loading, setLoading, error, setError } =
+    useUserContext();
   const [trendingBooks, setTrendingBooks] = useState([]);
   const navigate = useNavigate();
   const VITE_API_KEY = import.meta.env.VITE_API_KEY;
@@ -78,7 +70,6 @@ const UserDashboard = () => {
   useEffect(() => {
     fetchBooks();
     fetchTrendingBooks();
-    
   }, [query]);
   console.log(books);
   return (
@@ -111,7 +102,7 @@ const UserDashboard = () => {
     </main> */}
       {/* </div> */}
       <div className="h-cover w-full px-10 flex flex-col pt-9 pb-20 items-center justify-center">
-        <h2 className="text-3xl font-bold mb-6">Library book</h2>
+        <SearchInput query={query} setQuery={setQuery} />
         <div className="flex flex-row h-full w-full">
           <div className="flex flex-col w-1/2">
             <h2 className="text-2xl flex flex-col font-bold mb-2">
@@ -130,17 +121,14 @@ const UserDashboard = () => {
               </div>
             ) : (
               <div className="flex flex-col gap-3">
-               {books.map(
-                  (book, index) =>
-                    index < 3 && (
-                      <BookCard
-                        key={index}
-                        book={book}
-                        handleBookClick={handleBookClick}
-                        truncateDesc={truncateDesc}
-                      />
-                    )
-                )}
+                {books.map((book, index) => (
+                  <BookCard
+                    key={index}
+                    book={book}
+                    handleBookClick={handleBookClick}
+                    truncateDesc={truncateDesc}
+                  />
+                ))}
               </div>
             )}
           </div>
@@ -159,17 +147,14 @@ const UserDashboard = () => {
               </div>
             ) : (
               <div className="flex flex-col gap-3">
-                {trendingBooks.map(
-                  (book, index) =>
-                    index < 3 && (
-                      <BookCard
-                        key={index}
-                        book={book}
-                        handleBookClick={handleBookClick}
-                        truncateDesc={truncateDesc}
-                      />
-                    )
-                )}
+                {trendingBooks.map((book, index) => (
+                  <BookCard
+                    key={index}
+                    book={book}
+                    handleBookClick={handleBookClick}
+                    truncateDesc={truncateDesc}
+                  />
+                ))}
               </div>
             )}
           </div>
@@ -179,4 +164,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default LibrarianDashboard;
