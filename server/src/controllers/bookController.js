@@ -1,5 +1,5 @@
-import Book from '../models/bookModel.js';
-import Borrow from '../models/borrowModel.js';
+import { Book } from '../models/bookModel.js';
+import { Borrow } from '../models/borrowModel.js';
 
 // Add Book
 export const addBook = async (req, res) => {

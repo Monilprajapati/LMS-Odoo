@@ -1,5 +1,5 @@
-import Borrow from '../models/borrowModel.js';
-import Book from '../models/bookModel.js';
+import { Borrow } from '../models/borrowModel.js';
+import { Book } from '../models/bookModel.js';
 import { sendCheckoutEmail } from '../utils/sendCheckoutEmail.js';
 
 // Checkout Book
