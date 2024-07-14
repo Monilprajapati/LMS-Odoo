@@ -10,6 +10,7 @@ import authRoute from "./src/routes/authRoute.js";
 import bookRoute from "./src/routes/bookRoute.js";
 import borrowRoute from "./src/routes/borrowRoute.js";
 import adminRoute from "./src/routes/adminRoute.js";
+import userRoute from "./src/routes/userRoute.js";
 
 
 await connectToDb();
@@ -30,6 +31,7 @@ app.use(`/api/v1/auth`, authRoute);
 app.use(`/api/v1/books`, bookRoute);
 app.use(`/api/v1/borrows`, borrowRoute);
 app.use(`/api/v1/admin`, adminRoute);
+app.use(`/api/v1/users`, userRoute);
 app.use(`/api/v1/create-checkout-session`, createCheckoutSession);
 
 app.listen(PORT, () => {
