@@ -1,6 +1,7 @@
 import { Book } from '../models/bookModel.js';
 import { Borrow } from '../models/borrowModel.js';
 import { ApiError } from '../utils/ApiError.js';
+import { ApiResponse } from '../utils/ApiResponse.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 
 // Add Book
@@ -18,18 +19,6 @@ export const addBook = asyncHandler(async (req, res) => {
         res.status(500).json({ message: 'Error adding book', error });
     }
 });
-
-// // Update Book
-// export const updateBook = async (req, res) => {
-//     const { id } = req.params;
-//     const updatedData = req.body;
-//     try {
-//         await Book.findByIdAndUpdate(id, updatedData);
-//         res.status(200).json({ message: 'Book updated successfully' });
-//     } catch (error) {
-//         res.status(500).json({ message: 'Error updating book', error });
-//     }
-// };
 
 // Delete Book
 export const deleteBook = asyncHandler(async (req, res) => {
@@ -55,5 +44,5 @@ export const searchBooks = asyncHandler(async (req, res) => {
 
 export const getBooks = asyncHandler(async (req, res) => {
     const books = await Book.find();
-    res.status(200).json(new ApiResponse(books));
+    res.status(200).json(new ApiResponse(200, books, 'Books fetched successfully'));
 });
