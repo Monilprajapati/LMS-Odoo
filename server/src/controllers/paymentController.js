@@ -1,4 +1,4 @@
-import { asyncHandler } from "../utils/asyncHandler";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const createCheckoutSession = async(req,res) => {
     const { products, totalPrice } = req.body;
