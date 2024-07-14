@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.9",
     "@reduxjs/toolkit": "^2.1.0",
     "axios": "^1.6.7",
     "firebase": "^10.12.3",
+    "fortawesome": "^0.0.1-security",
     "framer-motion": "^11.0.3",
     "immer": "^10.0.3",
     "lucide-react": "^0.323.0",

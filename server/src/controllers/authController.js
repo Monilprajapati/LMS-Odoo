@@ -93,7 +93,15 @@ export const handleLogin = asyncHandler(
             throw new ApiError(404, "User with email does not exist");
 
         if (!user.verified)
-            throw new ApiError(401, "User is not verified", { id: user._id });
+        {
+            try {
+                await sendOtpMail(user._id, user.email);
+            } catch (error) {
+                throw new ApiError(500, "Failed to send OTP email");
+            }
+
+            throw new ApiError(401, "User is not verified", { id: user._id, email: user.email });
+        }
 
         const isPasswordCorrect = await user.isPasswordCorrect(password);
         if (!isPasswordCorrect)

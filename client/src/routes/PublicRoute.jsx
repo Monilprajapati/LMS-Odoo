@@ -6,7 +6,7 @@ const PublicRoute = ({ children }) => {
 
   const { isAuth } = useUserContext()
 
-  return !isAuth ? children  : <Navigate to="/" />
+  return !isAuth ? children  : <Navigate to="/dashboard" />
 }
 
 export default PublicRoute

@@ -6,16 +6,16 @@ console.log(SERVER_DOMAIN);
 const authUser = async (serverRoute, formData) => {
 
     try {
-      const response = await axios.post(
-        `${SERVER_DOMAIN}/api/v1/auth/${serverRoute}`,
-        formData,
-        { withCredentials: true }
-      );
-      return response.data;
+        const response = await axios.post(
+            `${SERVER_DOMAIN}/api/v1/auth/${serverRoute}`,
+            formData,
+            { withCredentials: true }
+        );
+        return response.data;
     } catch (error) {
-      throw error;
+        throw error;
     }
-  };
+};
 
 
 const verifyUser = async (otp, userId) => {

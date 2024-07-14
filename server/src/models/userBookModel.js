@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const userBookSchema = new Schema({
     isbn: {
         type: String,
         required: true,
@@ -11,14 +11,14 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    author: [{
+    author: {
         type: String,
         required: true
-    }],
-    publisher: [{
+    },
+    publisher: {
         type: String,
         required: true
-    }],
+    },
     publishedDate: {
         type: Number,
         required: true
@@ -37,6 +37,6 @@ const bookSchema = new Schema({
     }
 }, { timestamps: true });
 
-bookSchema.index({ title: 'text', author: 'text', genre: 'text' });
+userBookSchema.index({ title: 'text', author: 'text', genre: 'text' });
 
-export const Book = mongoose.model('Book', bookSchema);
+export const UserBook = mongoose.model('UserBook', userBookSchema);
