@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectToDb from "./src/config/databaseConfig.js";
 import { PORT, FRONTEND_URL } from "./src/config/serverConfig.js";
+import { createCheckoutSession } from "./src/controllers/paymentController.js";
 
 
 await connectToDb();
