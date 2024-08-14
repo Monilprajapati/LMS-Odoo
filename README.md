@@ -2,6 +2,9 @@
 # Library Management System Odoo
  
 Library Management System is a comprehensive full-stack application designed to help users manage book inventories, track borrower details, and handle transactions efficiently. This platform caters to libraries of all sizes, providing tools and resources to streamline library operations and enhance user experience.
+
+![LMS](https://github.com/user-attachments/assets/6b66ac94-03a3-4376-a59c-4fd58a1341e7)
+
 # Features
 
 ## Core Features
