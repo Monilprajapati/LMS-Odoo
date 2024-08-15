@@ -20,7 +20,10 @@ const Navbar = () => {
             <IoLibrarySharp className="text-lg  md:text-xl lg:text-3xl xl:text-4xl" />
           </span>
           <span className="text-xl group md:text-2xl lg:text-3xl xl:text-4xl">
-            LMS | <span className="group-hover:text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl">Odoo</span>
+            LMS |{" "}
+            <span className="group-hover:text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+              Odoo
+            </span>
           </span>
         </Link>
         {isAuth && (
@@ -34,7 +37,6 @@ const Navbar = () => {
           </div>
         )}
         <div className="hidden md:flex md:w-2/3 justify-end items-center gap-8">
-        <SearchInput />
           {isAuth ? (
             <>
               {/* <Link to="/" className="text-xl">
